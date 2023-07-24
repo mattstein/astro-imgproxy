@@ -62,12 +62,7 @@ Since you can use HTML in Markdown, the plugin should also grab valid `src` and 
     srcset="https://my-images.foo/original.png?imgproxy=s:2400,f:webp,q:95"
     type="image/webp"
   />
-  <img
-    src="https://my-images.foo/original.png?imgproxy=s:2400"
-    class="rounded shadow-lg"
-    data-zoomable
-    alt=""
-  />
+  <img src="https://my-images.foo/original.png?imgproxy=s:2400" alt="" />
 </picture>
 ```
 
