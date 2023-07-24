@@ -1,6 +1,6 @@
 # Astro imgproxy Plugin
 
-A plugin for adding imgproxy support to an Astro project in two parts:
+A plugin for adding [imgproxy](https://github.com/imgproxy/imgproxy) support to an Astro project in two parts:
 
 1. Remark plugin for prepping special Markdown image URLs for imgproxy.
 2. Standalone utilities for prepping imgproxy URLs in other contexts like Astro components.
