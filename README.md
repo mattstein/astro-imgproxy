@@ -32,9 +32,9 @@ export default defineConfig({
 
 ## Usage
 
-Once you’ve installed the plugin and added environment variables for your imgproxy instance, you’ll need to add `?imgproxy` URL parameters to images you’d like to transform.
+By default, the remark plugin doesn’t change anything.
 
-By default, no images in your project will be changed. Only those with the URL param will be prepped for imgproxy.
+To use it, you’ll need to add `?imgproxy` params to any absolute image URLs you’d like to transform.
 
 The URL param’s argument should be a comma-separated list of imgproxy [processing options](https://docs.imgproxy.net/generating_the_url?id=processing-options).
 
@@ -44,39 +44,36 @@ Check out the tests for example input and output.
 
 ### Markdown
 
+Markdown image format:
+
 ```md
-![](https://files.mattstein.com/payload-dashboard.png?imgproxy=s:2400)
+![](https://my-images.foo/original.png?imgproxy=s:2400)
 ```
 
+Since you can use HTML in Markdown, the plugin should also grab valid `src` and `srcset` references, too:
+
 ```html
-<figure>
-  <picture>
-    <source
-      srcset="
-        https://files.mattstein.com/payload-dashboard.png?imgproxy=s:2400,f:avif,q:95
-      "
-      type="image/avif"
-    />
-    <source
-      srcset="
-        https://files.mattstein.com/payload-dashboard.png?imgproxy=s:2400,f:webp,q:95
-      "
-      type="image/webp"
-    />
-    <img
-      src="https://files.mattstein.com/payload-dashboard.png?imgproxy=s:2400"
-      class="rounded shadow-lg"
-      data-zoomable
-      alt="Screenshot of the Payload CMS browser UI, with a sidebar and main content area listing Collections and Globals."
-    />
-  </picture>
-  <figcaption>
-    The Payload dashboard with some of the collections I’m working on.
-  </figcaption>
-</figure>
+<picture>
+  <source
+    srcset="https://my-images.foo/original.png?imgproxy=s:2400,f:avif,q:95"
+    type="image/avif"
+  />
+  <source
+    srcset="https://my-images.foo/original.png?imgproxy=s:2400,f:webp,q:95"
+    type="image/webp"
+  />
+  <img
+    src="https://my-images.foo/original.png?imgproxy=s:2400"
+    class="rounded shadow-lg"
+    data-zoomable
+    alt=""
+  />
+</picture>
 ```
 
 ### Elsewhere
+
+If you need to transform a URL in an Astro component or some other place on your site, you can use `isImgproxyUrl` to test whether a given image URL looks like it should be transformed for imgproxy, and `transformUrl` to transform it.
 
 ```js
 import { isImgproxyUrl, transformUrl } from "astro-imgproxy";
