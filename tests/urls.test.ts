@@ -3,7 +3,7 @@ import {
   isAbsoluteUrl,
   extractAbsoluteImageUrls,
   getUrlExtension,
-} from "../src/imgproxy";
+} from "../src/index";
 
 /**
  * Tests for lower-level URL detection and extraction.

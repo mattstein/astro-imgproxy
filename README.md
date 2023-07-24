@@ -18,13 +18,13 @@ IMGPROXY_BASE_URL="https://my-improxy-instance.foo"
 **`astro.config.mjs`**:
 
 ```js
-import remarkImgproxy from "astro-imgproxy/remark-imgproxy";
+import imgproxy from "astro-imgproxy/remark";
 
 export default defineConfig({
   // ...
   markdown: {
     // ...
-    remarkPlugins: [remarkImgproxy],
+    remarkPlugins: [imgproxy],
     // ...
   },
 });

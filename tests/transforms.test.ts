@@ -1,5 +1,5 @@
 import { test, assert, expect } from "vitest";
-import { transformUrl } from "../src/imgproxy";
+import { transformUrl } from "../src/index";
 
 /**
  * Tests for URL manipulation and transformation according to configuration.

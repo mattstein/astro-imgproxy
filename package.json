@@ -2,18 +2,26 @@
   "name": "astro-imgproxy",
   "version": "1.0.0",
   "description": "Astro imgproxy plugin.",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./remark": "./src/remark-imgproxy/index.ts"
   },
+  "files": [
+    "src",
+    "index.ts"
+  ],
   "scripts": {
+    "build": "./node_modules/typescript/bin/tsc",
     "test": "vitest"
   },
   "author": "Matt Stein",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^20.4.4",
     "create-hmac": "^1.1.7",
     "dotenv": "^16.3.1",
+    "typescript": "^5.1.6",
     "unist-util-visit": "^5.0.0",
     "vitest": "^0.33.0"
   }
