@@ -2,8 +2,8 @@
 
 A plugin for adding [imgproxy](https://github.com/imgproxy/imgproxy) support to an Astro project in two parts:
 
-1. Remark plugin for prepping special Markdown image URLs for imgproxy.
-2. Standalone utilities for prepping imgproxy URLs in other contexts like Astro components.
+1. Remark plugin for transforming Markdown image URLs.
+2. Utilities for prepping imgproxy URLs in other contexts like Astro components.
 
 ## Setup
 
@@ -42,6 +42,8 @@ Check out the tests for example input and output.
 
 ## Examples
 
+### Markdown
+
 ```md
 ![](https://files.mattstein.com/payload-dashboard.png?imgproxy=s:2400)
 ```
@@ -72,4 +74,16 @@ Check out the tests for example input and output.
     The Payload dashboard with some of the collections I’m working on.
   </figcaption>
 </figure>
+```
+
+### Elsewhere
+
+```js
+import { isImgproxyUrl, transformUrl } from "astro-imgproxy";
+
+// ...
+
+if (isImgproxyUrl(myUrl)) {
+  const transformed = transformUrl(myUrl);
+}
 ```
